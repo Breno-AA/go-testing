@@ -3,22 +3,20 @@ package words
 import "strings"
 
 func Count(s, w string) int {
-	arr := strings.Split(s, " ")
-
-	words := make([]string, 0)
-
-	for _, word := range arr {
-		if word == "" {
-			continue
-		}
-		words = append(words, word)
-	}
-
+	words := strings.Split(s, " ")
 	if w != "" {
 		return filter(words, w)
 	}
 
-	return len(words)
+	var total int
+	for _, word := range words {
+		if word == "" {
+			continue
+		}
+		total++
+	}
+
+	return total
 }
 
 func filter(words []string, w string) (total int) {

@@ -25,3 +25,14 @@ func TestCount(t *testing.T) {
 		}
 	}
 }
+
+var result int
+
+func BenchmarkCount(b *testing.B) {
+	var c int
+	for n := 0; n < b.N; n++ {
+		c = words.Count("Isso aqui é  um arquivo de texto que  foi criado para que o nosso programa possa ser testado.", "")
+	}
+	result = c
+
+}
